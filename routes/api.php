@@ -19,6 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+
 Route::prefix("/region")->group(function () {
     Route::get('/', [RegionesController::class, 'listarRegion']);
 });

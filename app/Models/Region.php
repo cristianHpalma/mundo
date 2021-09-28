@@ -13,11 +13,18 @@ class Region extends Model
     protected $primaryKey = 'id_region';
     public $timestamps = false;
 
-  /*   protected $appends = [
-        'empresa'
+    protected $appends = [
+        'provincia'
     ];
-    public function getEmpresaAttribute()
+
+
+    public function provincias()
     {
-        return DB::table('empresa')->where('id_empresa', '=', $this->idEmpresa)->first();
-    } */
+        return $this->hasMany(Provincia::class, 'id_region');
+    }
+
+    public function getProvinciaAttribute()
+    {
+        return $this->provincias()->get();
+    }
 }

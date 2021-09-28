@@ -9,7 +9,7 @@ class RegionesController extends Controller
 {
     public function listarRegion(Request $request){
 
-        $response = \DB::table('region')->get();
+        $response = Region::all();
 
        return response()->json($response);
 
